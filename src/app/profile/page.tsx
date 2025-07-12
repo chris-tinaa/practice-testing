@@ -60,27 +60,31 @@ export default function ProfilePage() {
 
     const toastId = toast.loading("Updating profile...");
 
-    const response = await fetch("/api/profile", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username,
-        fullName,
-        email,
-        phone,
-        birthDate,
-        bio,
-      }),
-    });
+    try {
+      const response = await fetch("/api/profile", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          fullName,
+          email,
+          phone,
+          birthDate,
+          bio,
+        }),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (response.ok) {
-      toast.success("Profile updated successfully!", { id: toastId });
-    } else {
-      toast.error(data.message || "An error occurred.", { id: toastId });
+      if (response.ok) {
+        toast.success("Profile updated successfully!", { id: toastId });
+      } else {
+        toast.error(data.message || "An error occurred.", { id: toastId });
+      }
+    } catch (error) {
+      toast.error("An error occurred.", { id: toastId });
     }
   };
 
