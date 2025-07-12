@@ -52,6 +52,70 @@ describe("API /api/profile", () => {
     );
   });
 
+  it("should return 400 if email is invalid", async () => {
+    const invalidData = { ...getValidProfileData(), email: "invalid-email" };
+    const req = {
+      json: () => Promise.resolve(invalidData),
+    } as Request;
+    await PUT(req);
+    expect(NextResponse.json).toHaveBeenCalledWith(
+      {
+        message: "Validation failed",
+        errors: { email: "Must be a valid email format." },
+      },
+      { status: 400 }
+    );
+  });
+
+  it("should return 400 if phone is invalid", async () => {
+    const invalidData = { ...getValidProfileData(), phone: "123" };
+    const req = {
+      json: () => Promise.resolve(invalidData),
+    } as Request;
+    await PUT(req);
+    expect(NextResponse.json).toHaveBeenCalledWith(
+      {
+        message: "Validation failed",
+        errors: { phone: "Phone must be 10-15 digits." },
+      },
+      { status: 400 }
+    );
+  });
+
+  it("should accept valid birth date", async () => {
+    const validData = { ...getValidProfileData(), birthDate: "1990-01-01" };
+    const req = {
+      json: () => Promise.resolve(validData),
+    } as Request;
+    await PUT(req);
+    expect(NextResponse.json).toHaveBeenCalledWith({
+      success: true,
+    });
+  });
+
+  it("should accept birth date as today", async () => {
+    const today = new Date().toISOString().split("T")[0];
+    const validData = { ...getValidProfileData(), birthDate: today };
+    const req = {
+      json: () => Promise.resolve(validData),
+    } as Request;
+    await PUT(req);
+    expect(NextResponse.json).toHaveBeenCalledWith({
+      success: true,
+    });
+  });
+
+  it("should accept valid bio", async () => {
+    const validData = { ...getValidProfileData(), bio: "This is a valid bio" };
+    const req = {
+      json: () => Promise.resolve(validData),
+    } as Request;
+    await PUT(req);
+    expect(NextResponse.json).toHaveBeenCalledWith({
+      success: true,
+    });
+  });
+
   it("should return 200 on valid data", async () => {
     const validData = getValidProfileData();
     const req = {

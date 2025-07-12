@@ -1,8 +1,6 @@
 # Update-Profile: A Fullstack Next.js Project
 
-[![CI/CD Pipeline](https://github.com/your-username/demo-repository/actions/workflows/test.yml/badge.svg)](https://github.com/chris-tinaa/demo-repository/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/your-username/demo-repository/branch/main/graph/badge.svg)](https://codecov.io/gh/chris-tinaa/demo-repository)
-[![Test Coverage](https://img.shields.io/badge/coverage-92%25-brightgreen)](https://codecov.io/gh/chris-tinaa/demo-repository)
 
 ## Project Description
 

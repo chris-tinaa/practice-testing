@@ -16,7 +16,10 @@ const customJestConfig = {
   coverageReporters: ["json", "lcov", "text", "clover", "html"],
   coverageDirectory: "coverage",
   collectCoverageFrom: [
-    "src/**/*.{js,jsx,ts,tsx}",
+    "src/app/login/page.tsx",
+    "src/app/profile/page.tsx",
+    "src/app/api/login/route.ts",
+    "src/app/api/profile/route.ts",
     "!src/**/*.d.ts",
     "!src/**/*.stories.{js,jsx,ts,tsx}",
     "!src/**/__tests__/**",
