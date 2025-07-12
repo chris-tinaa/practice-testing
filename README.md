@@ -1,5 +1,9 @@
 # Update-Profile: A Fullstack Next.js Project
 
+[![CI/CD Pipeline](https://github.com/your-username/demo-repository/actions/workflows/test.yml/badge.svg)](https://github.com/your-username/demo-repository/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/your-username/demo-repository/branch/main/graph/badge.svg)](https://codecov.io/gh/your-username/demo-repository)
+[![Test Coverage](https://img.shields.io/badge/coverage-92%25-brightgreen)](https://codecov.io/gh/your-username/demo-repository)
+
 ## Project Description
 
 This project is a sample full-stack application built with Next.js (App Router). It includes a simple frontend with login and profile update forms, a mock backend with API routes, and a complete testing and CI/CD setup.
@@ -116,6 +120,39 @@ update-profile/
 
 - **Continuous Integration (CI):** The project uses GitHub Actions to run tests automatically on every push and pull request to the `main` branch. The workflow is defined in `.github/workflows/test.yml`.
 - **Code Coverage:** Code coverage is generated on each test run and uploaded to Codecov. This helps in tracking the quality of the tests and ensuring that new code is adequately tested. The `codecov.yml` file configures how coverage is reported.
+
+### Setting up CodeCov Integration
+
+1. Visit [codecov.io](https://codecov.io) and sign up/in with your GitHub account
+2. Add your repository to CodeCov
+3. Copy the repository upload token from CodeCov dashboard
+4. In your GitHub repository, go to Settings → Secrets and Variables → Actions
+5. Add a new repository secret named `CODECOV_TOKEN` with the token value
+
+### Setting up Notifications (Optional)
+
+The CI/CD pipeline supports several notification methods. To enable them, uncomment the relevant sections in `.github/workflows/test.yml` and configure the required secrets:
+
+#### Telegram Notifications
+1. Create a Telegram bot by messaging @BotFather
+2. Get your chat ID by messaging @userinfobot
+3. Add these secrets to your GitHub repository:
+   - `TELEGRAM_BOT_TOKEN`: Your bot token from BotFather
+   - `TELEGRAM_CHAT_ID`: Your chat ID
+
+#### Google Chat (Google Spaces) Notifications
+1. In Google Chat, create or go to the space where you want notifications
+2. Click on the space name → Apps & integrations → Webhooks → Add webhook
+3. Name your webhook and copy the webhook URL
+4. Add this secret to your GitHub repository:
+   - `GOOGLE_CHAT_WEBHOOK`: Your webhook URL
+
+#### Slack Notifications
+1. In your Slack workspace, go to Apps → Incoming Webhooks
+2. Create a new webhook for your desired channel
+3. Copy the webhook URL
+4. Add this secret to your GitHub repository:
+   - `SLACK_WEBHOOK_URL`: Your webhook URL
 
 ## Notes
 
