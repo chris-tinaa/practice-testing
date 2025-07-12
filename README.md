@@ -1,6 +1,6 @@
 # Update-Profile: A Fullstack Next.js Project
 
-[![codecov](https://codecov.io/gh/your-username/demo-repository/branch/main/graph/badge.svg)](https://codecov.io/gh/chris-tinaa/demo-repository)
+[![codecov](https://codecov.io/gh/chris-tinaa/practice-testing/branch/main/graph/badge.svg)](https://codecov.io/gh/chris-tinaa/practice-testing)
 
 ## Project Description
 
